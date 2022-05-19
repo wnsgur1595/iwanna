@@ -1,9 +1,11 @@
 import React from 'react';
+import './LandingPage.scss';
+import Banner from './Sections/Banner';
 
 const LandingPage: React.FC = () => {
   return (
-    <div>
-      <h1>IWANNA LadingPage</h1>
+    <div className="landing">
+      <Banner />
     </div>
   );
 };
