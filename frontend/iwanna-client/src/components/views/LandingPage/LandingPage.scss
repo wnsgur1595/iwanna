@@ -63,4 +63,33 @@
       }
     }
   }
+
+  .news {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+
+    .news_category {
+      .category {
+        width: 160px;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 6px 8px;
+        color: $categoryTextColor;
+        cursor: pointer;
+      }
+
+      .category.active {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        background-color: $violetColor;
+        border-radius: 10px;
+        .category_icon path {
+          color: white;
+        }
+      }
+    }
+  }
 }
