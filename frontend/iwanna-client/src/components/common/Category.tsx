@@ -2,17 +2,25 @@ import React, {useState} from 'react';
 import '../views/LandingPage/LandingPage.scss';
 import {AiOutlineRightCircle} from 'react-icons/ai';
 
-const Category: React.FC = () => {
-  const [userCategory, setUserCategory] = useState([
-    {id: 'ic_u_0', name: '최신뉴스', isClicked: true},
-    {id: 'ic_u_1', name: '많이 본 뉴스', isClicked: false},
-    {id: 'ic_u_2', name: '정치', isClicked: false},
-    {id: 'ic_u_3', name: '경제', isClicked: false},
-    {id: 'ic_u_4', name: '사회', isClicked: false},
-    {id: 'ic_u_5', name: '스포츠', isClicked: false},
-    {id: 'ic_u_6', name: '날씨', isClicked: false},
-  ]);
+interface CategoryProps {
+  userCategory: {id: string; name: string; isClicked: boolean}[];
+  setUserCategory: React.Dispatch<
+    React.SetStateAction<
+      {
+        id: string;
+        name: string;
+        isClicked: boolean;
+      }[]
+    >
+  >;
+  setCurCategory: React.Dispatch<React.SetStateAction<string>>;
+}
 
+const Category: React.FC<CategoryProps> = ({
+  userCategory,
+  setUserCategory,
+  setCurCategory,
+}) => {
   const categoryClickHandler = (
     e: React.MouseEvent<HTMLLIElement, MouseEvent>,
     name: string
@@ -24,6 +32,7 @@ const Category: React.FC = () => {
           : {...category, isClicked: false}
       )
     );
+    setCurCategory(name);
   };
 
   return (
