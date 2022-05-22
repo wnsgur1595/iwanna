@@ -2,9 +2,9 @@
 
 .header {
   display: flex;
-  padding: 1rem 3.5rem;
+  padding: 1rem 3.5rem 0.2rem 3.5rem;
+  // align-items: center;
   justify-content: space-between;
-  align-items: center;
   border-bottom: 3px solid transparent;
   border-image: linear-gradient(
     to right,
@@ -19,17 +19,21 @@
     cursor: pointer;
   }
 
-  ul {
+  .right_menu {
     display: flex;
-    li {
-      font-weight: bold;
-      font-size: 14px;
-      padding: 8px 12px;
-      cursor: pointer;
-      transition: 300ms ease;
+    ul {
+      display: flex;
+      align-items: center;
+      li {
+        font-weight: bold;
+        font-size: 14px;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: 300ms ease;
 
-      &:hover {
-        color: $choralColor;
+        &:hover {
+          color: $choralColor;
+        }
       }
     }
   }
