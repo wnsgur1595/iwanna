@@ -13,17 +13,20 @@ interface CategoryProps {
       }[]
     >
   >;
-  setCurCategory: React.Dispatch<React.SetStateAction<string>>;
+  // setCurCategory: React.Dispatch<React.SetStateAction<string>>;
+  setCurCategoryIdx: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Category: React.FC<CategoryProps> = ({
   userCategory,
   setUserCategory,
-  setCurCategory,
+  // setCurCategory,
+  setCurCategoryIdx,
 }) => {
   const categoryClickHandler = (
     e: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    name: string
+    name: string,
+    idx: number
   ) => {
     setUserCategory(
       userCategory.map((category) =>
@@ -32,12 +35,13 @@ const Category: React.FC<CategoryProps> = ({
           : {...category, isClicked: false}
       )
     );
-    setCurCategory(name);
+    // setCurCategory(name);
+    setCurCategoryIdx(idx);
   };
 
   return (
     <ul className="news_category">
-      {userCategory.map((category) => {
+      {userCategory.map((category, idx) => {
         return category.isClicked ? (
           <li className="category active" key={category.id}>
             {category.name} <AiOutlineRightCircle className="category_icon" />
@@ -46,7 +50,7 @@ const Category: React.FC<CategoryProps> = ({
           <li
             className="category"
             key={category.id}
-            onClick={(e) => categoryClickHandler(e, category.name)}
+            onClick={(e) => categoryClickHandler(e, category.name, idx)}
           >
             {category.name}
           </li>

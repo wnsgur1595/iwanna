@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Header from './components/views/Header/Header';
 import LandingPage from './components/views/LandingPage/LandingPage';
-import 'antd/dist/antd.css';
 
 function App() {
   return (

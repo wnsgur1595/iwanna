@@ -13,16 +13,18 @@ const News: React.FC = () => {
     {id: 'ic_u_5', name: '스포츠', isClicked: false},
     {id: 'ic_u_6', name: '날씨', isClicked: false},
   ]);
-  const [curCategory, setCurCategory] = useState(userCategory[0].name);
+  // const [curCategory, setCurCategory] = useState(userCategory[0].name);
+  const [curCategoryIdx, setCurCategoryIdx] = useState(0);
 
   return (
     <div className="news">
       <Category
         userCategory={userCategory}
         setUserCategory={setUserCategory}
-        setCurCategory={setCurCategory}
+        // setCurCategory={setCurCategory}
+        setCurCategoryIdx={setCurCategoryIdx}
       />
-      <ArticleList curCategory={curCategory} />
+      <ArticleList curCategory={userCategory[curCategoryIdx].name} />
     </div>
   );
 };
