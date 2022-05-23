@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ArticleList from '../../../common/ArticleList';
 import Category from '../../../common/Category';
-import '../LandingPage.scss';
+import '../../../common/common.scss';
 
 const News: React.FC = () => {
   const [userCategory, setUserCategory] = useState([

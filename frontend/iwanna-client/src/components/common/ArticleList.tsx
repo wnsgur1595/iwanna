@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import '../views/LandingPage/LandingPage.scss';
+import './common.scss';
 import {AiOutlineInfoCircle} from 'react-icons/ai';
 import PopConfirm from './PopConfirm';
+import Articles from './Articles';
 
 interface ArticleListProps {
   curCategory: string;
@@ -24,6 +25,7 @@ const ArticleList: React.FC<ArticleListProps> = ({curCategory}) => {
         />
         <PopConfirm guideIsClicked={guideIsClicked} />
       </div>
+      <Articles />
     </div>
   );
 };

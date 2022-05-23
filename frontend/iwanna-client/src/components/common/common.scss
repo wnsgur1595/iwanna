@@ -1,0 +1,142 @@
+@import './style.scss';
+
+.news {
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem;
+
+  .news_category {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 3.5rem;
+
+    .category {
+      width: 160px;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 6px 8px;
+      color: $categoryTextColor;
+      cursor: pointer;
+    }
+
+    .category.active {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      background-color: $violetColor;
+      border-radius: 10px;
+      .category_icon path {
+        color: white;
+      }
+    }
+  }
+
+  .article_list {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    color: $categoryTextColor;
+
+    .category_title {
+      display: flex;
+      align-items: center;
+
+      div {
+        font-weight: bold;
+        font-size: 30px;
+        padding-right: 10px;
+      }
+
+      .article_list_guide {
+        font-size: 28px;
+        cursor: pointer;
+
+        path {
+          color: $lightGray;
+        }
+      }
+    }
+
+    .pop_confirm {
+      visibility: hidden;
+      position: relative;
+      width: 280px;
+      height: 40px;
+      left: -45px;
+      bottom: 60px;
+      background: $lilacColor;
+      font-size: 12px;
+      color: $categoryTextColor;
+      border-radius: 5px;
+      padding: 12px 12.8px;
+      box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
+      transition: 500ms ease;
+    }
+
+    .pop_confirm:after {
+      border-top: 10px solid $lilacColor;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 0px solid transparent;
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 20px;
+    }
+
+    .pop_confirm.clamp {
+      // display: none;
+      animation: fadeIn 0.5s;
+      visibility: visible;
+    }
+
+    .articles {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      width: 90%;
+      background-color: $lilacColor;
+      border-radius: 10px;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 1rem;
+        background-color: white;
+        border-radius: 10px;
+        margin: 3px 0;
+
+        .button_article_follow {
+          visibility: hidden;
+          background-color: $disableColor;
+          color: white;
+          font-weight: bold;
+          padding: 8px 14px;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+
+        &:hover {
+          .button_article_follow {
+            visibility: visible;
+            animation: fadeIn 1.5s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

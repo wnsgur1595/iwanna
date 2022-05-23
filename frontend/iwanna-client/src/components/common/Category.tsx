@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../views/LandingPage/LandingPage.scss';
+import './common.scss';
 import {AiOutlineRightCircle} from 'react-icons/ai';
 
 interface CategoryProps {

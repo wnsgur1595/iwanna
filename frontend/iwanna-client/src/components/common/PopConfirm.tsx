@@ -1,5 +1,5 @@
 import React from 'react';
-import '../views/LandingPage/LandingPage.scss';
+import './common.scss';
 
 interface PopConfirmProps {
   guideIsClicked: boolean;
