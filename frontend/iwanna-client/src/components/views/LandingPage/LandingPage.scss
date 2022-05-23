@@ -125,6 +125,7 @@
       }
 
       .pop_confirm {
+        visibility: hidden;
         position: relative;
         width: 280px;
         height: 40px;
@@ -152,16 +153,16 @@
 
       .pop_confirm.clamp {
         // display: none;
-        visibility: hidden;
-        animation: fadeIn 0.8s;
+        animation: fadeIn 0.5s;
+        visibility: visible;
       }
 
       @keyframes fadeIn {
         from {
-          opacity: 1;
+          opacity: 0;
         }
         to {
-          opacity: 0;
+          opacity: 1;
         }
       }
     }

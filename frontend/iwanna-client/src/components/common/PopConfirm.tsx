@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import '../views/LandingPage/LandingPage.scss';
 
 interface PopConfirmProps {
@@ -8,7 +8,6 @@ interface PopConfirmProps {
 const PopConfirm: React.FC<PopConfirmProps> = ({guideIsClicked}) => {
   const articleListInfo: string =
     "후속 기사를 원하시면 '신청' 버튼을 눌러주세요.";
-
   return (
     <div>
       <span className={guideIsClicked ? 'pop_confirm clamp' : 'pop_confirm'}>

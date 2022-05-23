@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../views/LandingPage/LandingPage.scss';
 import {AiOutlineInfoCircle} from 'react-icons/ai';
 import PopConfirm from './PopConfirm';
@@ -9,6 +9,10 @@ interface ArticleListProps {
 
 const ArticleList: React.FC<ArticleListProps> = ({curCategory}) => {
   const [guideIsClicked, setGuideIsClicked] = useState(false);
+
+  useEffect(() => {
+    setGuideIsClicked(false);
+  }, [curCategory]);
 
   return (
     <div className="article_list">
