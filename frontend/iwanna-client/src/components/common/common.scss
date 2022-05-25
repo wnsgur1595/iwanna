@@ -3,7 +3,8 @@
 .news {
   display: flex;
   justify-content: center;
-  padding-top: 5rem;
+  padding: 5rem 0;
+  height: 100vh;
 
   .news_category {
     flex: 1;
@@ -89,7 +90,7 @@
 
     .pop_confirm.clamp {
       // display: none;
-      animation: fadeIn 0.5s;
+      animation: fade-in 0.5s;
       visibility: visible;
     }
 
@@ -104,39 +105,115 @@
 
       li {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 1rem;
-        background-color: white;
-        border-radius: 10px;
-        margin: 3px 0;
+        flex-direction: column;
 
-        .button_article_follow {
-          visibility: hidden;
-          background-color: $disableColor;
-          color: white;
-          font-weight: bold;
-          padding: 8px 14px;
+        .article_main {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 1rem;
+          background-color: white;
           border-radius: 10px;
-          cursor: pointer;
+          margin: 3px 0;
+
+          span {
+            cursor: pointer;
+          }
+
+          .button_article_follow {
+            // opacity: 0;
+            // pointer-events: none;
+            visibility: hidden;
+            background-color: $disableColor;
+            color: white;
+            font-weight: bold;
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            // animation: fade-out 0.5s ease forwards;
+          }
+
+          .button_article_follow.clamp {
+            background-color: $violetColor;
+          }
+        } //article_main
+
+        .article_main.clamp {
+          // border-radius: 10px 10px 0 0;
+          margin-bottom: 0;
         }
+
+        .article_sub {
+          display: none;
+          margin-top: -8px;
+          flex-direction: column;
+          background-color: white;
+          border-radius: 0 0 10px 10px;
+          animation: fade-out 0.5s ease forwards;
+
+          div {
+            padding: 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+
+            span {
+              font-size: 14px;
+
+              &:first-child {
+                font-weight: bold;
+                margin-bottom: 8px;
+              }
+
+              &:nth-child(2) {
+                cursor: pointer;
+              }
+            }
+
+            button {
+              margin-top: 10px;
+              align-self: flex-end;
+              font-weight: bold;
+              font-size: 14px;
+
+              &:hover {
+                color: $violetColor;
+                transition: 300ms ease;
+              }
+            }
+          }
+        } //article_sub
 
         &:hover {
           .button_article_follow {
+            // pointer-events: auto;
             visibility: visible;
-            animation: fadeIn 1.5s;
+            animation: fade-in 2s ease forwards;
+          }
+
+          .article_sub {
+            display: block;
+            animation: fade-in 1.5s ease forwards;
           }
         }
-      }
-    }
-  }
-}
+      } //articles li
+    } //articles
+  } //article_list
+} //news
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
