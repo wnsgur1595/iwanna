@@ -1,12 +1,15 @@
 import React from 'react';
+import {useNavigate} from 'react-router';
 import '../Header.scss';
 
 const RightMenu = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="right_menu">
       <ul>
-        <li>로그인</li>
-        <li>회원가입</li>
+        <li onClick={() => navigate('/login')}>로그인</li>
+        <li onClick={() => navigate('')}>회원가입</li>
       </ul>
     </div>
   );

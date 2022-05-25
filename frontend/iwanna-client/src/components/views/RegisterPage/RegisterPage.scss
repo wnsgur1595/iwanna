@@ -1,0 +1,17 @@
+@import '../../common/style.scss';
+
+.register {
+  @extend .service;
+
+  .required {
+    font-weight: bold;
+    color: $redColor;
+    align-self: flex-end;
+    font-size: 12px;
+    padding: 0 1.25rem 1rem 1.25rem;
+  }
+
+  .required_icon {
+    color: $redColor;
+  }
+}
