@@ -9,7 +9,7 @@ const RightMenu = () => {
     <div className="right_menu">
       <ul>
         <li onClick={() => navigate('/login')}>로그인</li>
-        <li onClick={() => navigate('')}>회원가입</li>
+        <li onClick={() => navigate('/choice')}>회원가입</li>
       </ul>
     </div>
   );
