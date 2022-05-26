@@ -1,8 +1,9 @@
 @import '../../common/style.scss';
 
 .header {
+  position: relative;
+  z-index: 100;
   display: flex;
-  // padding: 1rem 3.5rem 0.2rem 3.5rem
   padding: 1rem 3.5rem;
   align-items: center;
   justify-content: space-between;
@@ -13,6 +14,7 @@
     rgb(106, 130, 251)
   );
   border-image-slice: 1;
+  background-color: white;
 
   .logo {
     font-size: 25px;
