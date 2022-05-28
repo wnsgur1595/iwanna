@@ -1,12 +1,16 @@
 import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router';
 import './RegisterPage.scss';
 
 const RegisterPage = () => {
+  const {classfication} = useParams();
   const [name, setName] = useState('');
   const [id, setId] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  console.log(classfication);
 
   const nameChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);

@@ -58,6 +58,13 @@
         path {
           color: $lightGray;
         }
+
+        &:hover {
+          .pop_confirm {
+            visibility: visible;
+            animation: fade-in 0.5s;
+          }
+        }
       }
     }
 
@@ -89,7 +96,6 @@
     }
 
     .pop_confirm.clamp {
-      // display: none;
       animation: fade-in 0.5s;
       visibility: visible;
     }

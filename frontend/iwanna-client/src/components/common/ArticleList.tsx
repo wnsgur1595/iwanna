@@ -10,6 +10,7 @@ interface ArticleListProps {
 
 const ArticleList: React.FC<ArticleListProps> = ({curCategory}) => {
   const [guideIsClicked, setGuideIsClicked] = useState(false);
+  const [hide, setHide] = useState(false);
 
   useEffect(() => {
     setGuideIsClicked(false);
@@ -19,11 +20,16 @@ const ArticleList: React.FC<ArticleListProps> = ({curCategory}) => {
     <div className="article_list">
       <div className="category_title">
         <div>{curCategory}</div>
-        <AiOutlineInfoCircle
+        {/* <AiOutlineInfoCircle
           className="article_list_guide"
           onClick={() => setGuideIsClicked(!guideIsClicked)}
+        /> */}
+        <AiOutlineInfoCircle
+          className="article_list_guide"
+          onMouseOver={() => setHide(true)}
+          onMouseOut={() => setHide(false)}
         />
-        <PopConfirm guideIsClicked={guideIsClicked} />
+        <PopConfirm hide={hide} />
       </div>
       <Articles />
     </div>
