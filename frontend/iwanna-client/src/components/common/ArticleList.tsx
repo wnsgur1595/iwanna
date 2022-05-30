@@ -21,7 +21,7 @@ const ArticleList: React.FC<ArticleListProps> = ({curCategory, userType}) => {
           onMouseOver={() => setHide(true)}
           onMouseOut={() => setHide(false)}
         />
-        <PopConfirm hide={hide} />
+        <PopConfirm hide={hide} userType={userType} />
       </div>
       <Articles userType={userType} />
     </div>
