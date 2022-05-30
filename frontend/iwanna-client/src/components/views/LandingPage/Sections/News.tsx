@@ -3,7 +3,11 @@ import ArticleList from '../../../common/ArticleList';
 import Category from '../../../common/Category';
 import '../../../common/common.scss';
 
-const News: React.FC = () => {
+interface NewsProps {
+  userType: string;
+}
+
+const News: React.FC<NewsProps> = ({userType}) => {
   const [userCategory, setUserCategory] = useState([
     {id: 'ic_u_0', name: '최신 뉴스', isClicked: true},
     {id: 'ic_u_1', name: '인기 뉴스', isClicked: false},
@@ -13,18 +17,31 @@ const News: React.FC = () => {
     {id: 'ic_u_5', name: '스포츠', isClicked: false},
     {id: 'ic_u_6', name: '날씨', isClicked: false},
   ]);
+  const [reporterCategory, setReporterCategory] = useState([
+    {id: 'ic_r_0', name: '최신 뉴스', isClicked: true},
+    {id: 'ic_r_1', name: '후속 기사 신청순', isClicked: false},
+    {id: 'ic_r_2', name: '정치', isClicked: false},
+    {id: 'ic_r_3', name: '경제', isClicked: false},
+    {id: 'ic_r_4', name: '사회', isClicked: false},
+    {id: 'ic_r_5', name: '스포츠', isClicked: false},
+    {id: 'ic_r_6', name: '날씨', isClicked: false},
+  ]);
   // const [curCategory, setCurCategory] = useState(userCategory[0].name);
   const [curCategoryIdx, setCurCategoryIdx] = useState(0);
 
   return (
     <div className="news">
       <Category
-        userCategory={userCategory}
-        setUserCategory={setUserCategory}
-        // setCurCategory={setCurCategory}
+        category={userType === 'user' ? userCategory : reporterCategory}
+        setCategory={
+          userType === 'user' ? setUserCategory : setReporterCategory
+        }
         setCurCategoryIdx={setCurCategoryIdx}
       />
-      <ArticleList curCategory={userCategory[curCategoryIdx].name} />
+      <ArticleList
+        curCategory={userCategory[curCategoryIdx].name}
+        userType={userType} // 임시 props drilling
+      />
     </div>
   );
 };

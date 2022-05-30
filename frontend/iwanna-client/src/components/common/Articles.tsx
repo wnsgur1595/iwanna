@@ -1,15 +1,8 @@
 import React from 'react';
 import './common.scss';
 
-interface ArticleData {
-  aId: number;
-  title: string;
-  isFoolow: boolean;
-  parentArticle: string;
-  childArticle: {
-    a_cId: number;
-    title: string;
-  }[];
+interface ArticlesProps {
+  userType: string;
 }
 
 const article_temp_data = [
@@ -80,54 +73,117 @@ const article_temp_data = [
   },
 ];
 
-const Articles = () => {
-  return (
-    <ul className="articles">
-      {article_temp_data.map((article) => (
-        <li>
-          {/* <div className="article_main"> */}
-          <div
-            className={
-              article.parentArticle || article.childArticle
-                ? 'article_main clamp'
-                : 'article_main'
-            }
-          >
-            <span>{article.title}</span>
-            <button
+const article_reporter_data = [
+  {
+    aId: 1,
+    title: '[인천] 인천여성경제인협회, 산불 이재민에 천백만 원 성금',
+    //url,
+    isWrite: false,
+    follow_num: 121,
+  },
+  {
+    aId: 2,
+    title: '[인천] "인천e음 기반 공공은행 설립 73%가 동의',
+    //url
+    isWrite: true,
+    follow_num: 1021,
+  },
+  {
+    a_cId: 5,
+    title: '[경북] 포스코케미칼, 경북 포항에 차세대 전기차용 양극재 공장 착공',
+    //url
+    isWrite: false,
+    follow_num: 521,
+  },
+];
+
+const Articles: React.FC<ArticlesProps> = ({userType}) => {
+  if (userType === 'user') {
+    return (
+      <ul className="articles">
+        {article_temp_data.map((article) => (
+          <li>
+            {/* <div className="article_main"> */}
+            <div
               className={
-                article.isFollow
-                  ? 'button_article_follow clamp'
-                  : 'button_article_follow'
+                article.parentArticle || article.childArticle
+                  ? 'article_main clamp'
+                  : 'article_main'
               }
             >
-              신청
-            </button>
-          </div>
-          {(article.parentArticle || article.childArticle.length > 0) && (
-            <div className="article_sub">
-              {article.parentArticle && (
-                <div>
-                  <span>해당 기사의 선행 뉴스입니다.</span>
-                  <span>{article.parentArticle}</span>
-                </div>
-              )}
-              {article.childArticle.length > 0 && (
-                <div>
-                  <span>해당 기사의 후속 뉴스입니다.</span>
-                  <span>
-                    {article.childArticle[0].title}{' '}
-                    <b>외 {article.childArticle.length}건</b>
-                  </span>
-                  <button>더보기</button>
-                </div>
-              )}
+              <span>{article.title}</span>
+              {userType === 'user' ? (
+                <button
+                  className={
+                    article.isFollow
+                      ? 'button_article_follow'
+                      : 'button_article_follow clamp'
+                  }
+                >
+                  신청
+                </button>
+              ) : null}
+              {/* <button
+                className={
+                  article.isFollow
+                    ? 'button_article_follow'
+                    : 'button_article_follow clamp'
+                }
+              >
+                신청
+              </button> */}
             </div>
-          )}
-        </li>
-      ))}
-    </ul>
-  );
+            {(article.parentArticle || article.childArticle.length > 0) && (
+              <div className="article_sub">
+                {article.parentArticle && (
+                  <div>
+                    <span>해당 기사의 선행 뉴스입니다.</span>
+                    <span>{article.parentArticle}</span>
+                  </div>
+                )}
+                {article.childArticle.length > 0 && (
+                  <div>
+                    <span>해당 기사의 후속 뉴스입니다.</span>
+                    <span>
+                      {article.childArticle[0].title}{' '}
+                      <b>외 {article.childArticle.length}건</b>
+                    </span>
+                    <button>더보기</button>
+                  </div>
+                )}
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    );
+  } else {
+    return (
+      <ul className="articles">
+        {article_reporter_data.map((article) => (
+          <li>
+            <div className={'article_main'}>
+              <span>{article.title}</span>
+              <button
+                className={
+                  article.isWrite
+                    ? 'button_article_follow'
+                    : 'button_article_follow clamp'
+                }
+              >
+                작성
+              </button>
+              <div className={'article_follows'}>
+                {article.follow_num
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    );
+  }
 };
 
 export default Articles;

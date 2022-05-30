@@ -3,8 +3,8 @@ import './common.scss';
 import {AiOutlineRightCircle} from 'react-icons/ai';
 
 interface CategoryProps {
-  userCategory: {id: string; name: string; isClicked: boolean}[];
-  setUserCategory: React.Dispatch<
+  category: {id: string; name: string; isClicked: boolean}[];
+  setCategory: React.Dispatch<
     React.SetStateAction<
       {
         id: string;
@@ -18,8 +18,8 @@ interface CategoryProps {
 }
 
 const Category: React.FC<CategoryProps> = ({
-  userCategory,
-  setUserCategory,
+  category,
+  setCategory,
   // setCurCategory,
   setCurCategoryIdx,
 }) => {
@@ -28,8 +28,8 @@ const Category: React.FC<CategoryProps> = ({
     name: string,
     idx: number
   ) => {
-    setUserCategory(
-      userCategory.map((category) =>
+    setCategory(
+      category.map((category) =>
         name === category.name
           ? {...category, isClicked: true}
           : {...category, isClicked: false}
@@ -41,7 +41,7 @@ const Category: React.FC<CategoryProps> = ({
 
   return (
     <ul className="news_category">
-      {userCategory.map((category, idx) => {
+      {category.map((category, idx) => {
         return category.isClicked ? (
           <li className="category active" key={category.id}>
             {category.name} <AiOutlineRightCircle className="category_icon" />

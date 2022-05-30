@@ -6,24 +6,16 @@ import Articles from './Articles';
 
 interface ArticleListProps {
   curCategory: string;
+  userType: string;
 }
 
-const ArticleList: React.FC<ArticleListProps> = ({curCategory}) => {
-  const [guideIsClicked, setGuideIsClicked] = useState(false);
+const ArticleList: React.FC<ArticleListProps> = ({curCategory, userType}) => {
   const [hide, setHide] = useState(false);
-
-  useEffect(() => {
-    setGuideIsClicked(false);
-  }, [curCategory]);
 
   return (
     <div className="article_list">
       <div className="category_title">
         <div>{curCategory}</div>
-        {/* <AiOutlineInfoCircle
-          className="article_list_guide"
-          onClick={() => setGuideIsClicked(!guideIsClicked)}
-        /> */}
         <AiOutlineInfoCircle
           className="article_list_guide"
           onMouseOver={() => setHide(true)}
@@ -31,7 +23,7 @@ const ArticleList: React.FC<ArticleListProps> = ({curCategory}) => {
         />
         <PopConfirm hide={hide} />
       </div>
-      <Articles />
+      <Articles userType={userType} />
     </div>
   );
 };

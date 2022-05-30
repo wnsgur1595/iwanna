@@ -13,7 +13,7 @@ const ChoicePage: React.FC = () => {
           <img src="img/nomal_user.png" />
           <span>일반회원</span>
         </li>
-        <li onClick={() => navigate('/register/journalist')}>
+        <li onClick={() => navigate('/register/reporter')}>
           <img src="img/journalist.png" />
           <span>기자회원</span>
         </li>

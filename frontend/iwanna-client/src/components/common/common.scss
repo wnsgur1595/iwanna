@@ -14,7 +14,7 @@
     padding-right: 3.5rem;
 
     .category {
-      width: 160px;
+      width: 185px;
       font-size: 20px;
       font-weight: bold;
       padding: 6px 8px;
@@ -142,6 +142,15 @@
           .button_article_follow.clamp {
             background-color: $violetColor;
           }
+
+          .article_follows {
+            font-weight: bold;
+            color: white;
+            background-color: $choralColor;
+            padding: 8px 14px;
+            border-radius: 10px;
+            animation: fade-in 2s ease forwards;
+          }
         } //article_main
 
         .article_main.clamp {
@@ -195,6 +204,10 @@
             // pointer-events: auto;
             visibility: visible;
             animation: fade-in 2s ease forwards;
+          }
+
+          .article_follows {
+            display: none;
           }
 
           .article_sub {
