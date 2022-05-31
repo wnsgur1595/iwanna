@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
 import './common.scss';
 
 interface PopConfirmProps {
   hide: boolean;
-  userType: string;
+  userType?: string;
 }
 
 const PopConfirm: React.FC<PopConfirmProps> = ({hide, userType}) => {

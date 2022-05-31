@@ -1,5 +1,6 @@
-import React from 'react';
-import './common.scss';
+import React, {useState} from 'react';
+import '../../../common/common.scss';
+import WriteModal from '../../../common/WriteModal';
 
 interface ArticlesProps {
   userType: string;
@@ -98,12 +99,22 @@ const article_reporter_data = [
 ];
 
 const Articles: React.FC<ArticlesProps> = ({userType}) => {
+  const [isWrite, setIsWrite] = useState(false);
+
+  const clickModalHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    writeCheck: boolean
+  ) => {
+    if (!writeCheck) {
+      setIsWrite(!isWrite);
+    }
+  };
+
   if (userType === 'user') {
     return (
       <ul className="articles">
         {article_temp_data.map((article) => (
           <li>
-            {/* <div className="article_main"> */}
             <div
               className={
                 article.parentArticle || article.childArticle
@@ -123,15 +134,6 @@ const Articles: React.FC<ArticlesProps> = ({userType}) => {
                   신청
                 </button>
               ) : null}
-              {/* <button
-                className={
-                  article.isFollow
-                    ? 'button_article_follow'
-                    : 'button_article_follow clamp'
-                }
-              >
-                신청
-              </button> */}
             </div>
             {(article.parentArticle || article.childArticle.length > 0) && (
               <div className="article_sub">
@@ -159,29 +161,33 @@ const Articles: React.FC<ArticlesProps> = ({userType}) => {
     );
   } else {
     return (
-      <ul className="articles">
-        {article_reporter_data.map((article) => (
-          <li>
-            <div className={'article_main'}>
-              <span>{article.title}</span>
-              <button
-                className={
-                  article.isWrite
-                    ? 'button_article_follow'
-                    : 'button_article_follow clamp'
-                }
-              >
-                작성
-              </button>
-              <div className={'article_follows'}>
-                {article.follow_num
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+      <div>
+        <ul className="articles">
+          {article_reporter_data.map((article) => (
+            <li>
+              <div className={'article_main'}>
+                <span>{article.title}</span>
+                <button
+                  className={
+                    article.isWrite
+                      ? 'button_article_follow'
+                      : 'button_article_follow clamp'
+                  }
+                  onClick={(e) => clickModalHandler(e, article.isWrite)}
+                >
+                  작성
+                </button>
+                <div className={'article_follows'}>
+                  {article.follow_num
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+        {isWrite && <WriteModal isWrite={isWrite} setIsWrite={setIsWrite} />}
+      </div>
     );
   }
 };

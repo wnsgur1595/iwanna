@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import './common.scss';
+import '../../../common/common.scss';
 import {AiOutlineInfoCircle} from 'react-icons/ai';
-import PopConfirm from './PopConfirm';
+import PopConfirm from '../../../common/PopConfirm';
 import Articles from './Articles';
 
 interface ArticleListProps {

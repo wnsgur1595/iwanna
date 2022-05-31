@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ArticleList from '../../../common/ArticleList';
+import ArticleList from './ArticleList';
 import Category from '../../../common/Category';
 import '../../../common/common.scss';
 
