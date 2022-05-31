@@ -2,6 +2,8 @@
 
 .header {
   position: relative;
+  // border: 3px solid red;
+  height: 80px;
   z-index: 15;
   display: flex;
   padding: 1rem 3.5rem;
@@ -24,6 +26,7 @@
 
   .right_menu {
     display: flex;
+
     ul {
       display: flex;
       align-items: center;
@@ -33,6 +36,27 @@
         padding: 8px 12px;
         cursor: pointer;
         transition: 300ms ease;
+
+        .header_icon {
+          position: relative;
+          bottom: 0;
+          font-size: 20px;
+
+          path {
+            color: $violetColor;
+          }
+        }
+
+        .heaer_icon_spot {
+          position: relative;
+          top: 4px;
+          right: -10px;
+          width: 8px;
+          height: 8px;
+          background-color: $choralColor;
+          border-radius: 50%;
+          z-index: 5;
+        }
 
         &:hover {
           color: $choralColor;
