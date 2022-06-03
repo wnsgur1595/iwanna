@@ -4,6 +4,7 @@ import WriteModal from '../../../common/WriteModal';
 
 interface ArticlesProps {
   userType: string;
+  isLogin: boolean;
 }
 
 const article_temp_data = [
@@ -98,7 +99,7 @@ const article_reporter_data = [
   },
 ];
 
-const Articles: React.FC<ArticlesProps> = ({userType}) => {
+const Articles: React.FC<ArticlesProps> = ({userType, isLogin}) => {
   const [isWrite, setIsWrite] = useState(false);
 
   const clickModalHandler = (
@@ -123,7 +124,7 @@ const Articles: React.FC<ArticlesProps> = ({userType}) => {
               }
             >
               <span>{article.title}</span>
-              {userType === 'user' ? (
+              {isLogin ? (
                 <button
                   className={
                     article.isFollow

@@ -5,9 +5,10 @@ import '../../../common/common.scss';
 
 interface NewsProps {
   userType: string;
+  isLogin: boolean;
 }
 
-const News: React.FC<NewsProps> = ({userType}) => {
+const News: React.FC<NewsProps> = ({userType, isLogin}) => {
   const [userCategory, setUserCategory] = useState([
     {id: 'ic_u_0', name: '최신 뉴스', isClicked: true},
     {id: 'ic_u_1', name: '인기 뉴스', isClicked: false},
@@ -40,7 +41,8 @@ const News: React.FC<NewsProps> = ({userType}) => {
       />
       <ArticleList
         curCategory={userCategory[curCategoryIdx].name}
-        userType={userType} // 임시 props drilling
+        userType={userType}
+        isLogin={isLogin} // 임시 props drilling
       />
     </div>
   );

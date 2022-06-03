@@ -7,9 +7,14 @@ import Articles from './Articles';
 interface ArticleListProps {
   curCategory: string;
   userType: string;
+  isLogin: boolean;
 }
 
-const ArticleList: React.FC<ArticleListProps> = ({curCategory, userType}) => {
+const ArticleList: React.FC<ArticleListProps> = ({
+  curCategory,
+  userType,
+  isLogin,
+}) => {
   const [hide, setHide] = useState(false);
 
   return (
@@ -23,7 +28,7 @@ const ArticleList: React.FC<ArticleListProps> = ({curCategory, userType}) => {
         />
         <PopConfirm hide={hide} userType={userType} />
       </div>
-      <Articles userType={userType} />
+      <Articles userType={userType} isLogin={isLogin} />
     </div>
   );
 };
