@@ -40,7 +40,11 @@ const News: React.FC<NewsProps> = ({userType, isLogin}) => {
         setCurCategoryIdx={setCurCategoryIdx}
       />
       <ArticleList
-        curCategory={userCategory[curCategoryIdx].name}
+        curCategory={
+          userType === 'user'
+            ? userCategory[curCategoryIdx].name
+            : reporterCategory[curCategoryIdx].name
+        }
         userType={userType}
         isLogin={isLogin} // 임시 props drilling
       />
