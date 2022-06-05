@@ -20,7 +20,7 @@ const ArticleList: React.FC<ArticleListProps> = ({
   return (
     <div className="article_list">
       <div className="category_title">
-        <div>{curCategory}</div>
+        <div className="category_name">{curCategory}</div>
         <AiOutlineInfoCircle
           className="article_list_guide"
           onMouseOver={() => setHide(true)}

@@ -29,7 +29,7 @@ const Category: React.FC<CategoryProps> = ({
     idx: number
   ) => {
     setCategory(
-      category.map((category) =>
+      category.map((category, idx) =>
         name === category.name
           ? {...category, isClicked: true}
           : {...category, isClicked: false}

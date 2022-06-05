@@ -56,7 +56,7 @@ const RightMenu: React.FC<RightMenuProps> = ({isLogin, isUser}) => {
           ) : (
             <li className="header_user">{name}기자님</li>
           )}
-          <li onClick={() => navigate('/')}>마이페이지</li>
+          <li onClick={() => navigate('/mypage/user')}>마이페이지</li>
         </ul>
         {isModal && (
           <AlarmModal
