@@ -7,11 +7,12 @@
   .mypage_contents {
     @extend .article_list;
 
-    .subscribe {
+    .subscribe,
+    .history {
       @extend .articles;
-      align-items: center;
 
       form {
+        align-self: center;
         width: 500px;
         display: flex;
         align-items: center;
@@ -42,7 +43,7 @@
         }
       } // subscribe > form
 
-      ul {
+      .subscribe_list {
         width: 100%;
         margin-top: 2rem;
 
@@ -74,6 +75,49 @@
               visibility: visible;
               animation: fade-in 2s ease forwards;
             }
+          }
+        }
+      } //subscribe_list
+
+      .button_delete_history_all {
+        align-self: flex-end;
+        margin-top: 1rem;
+        padding: 8px 14px;
+        background-color: $redColor;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .button_delete_history {
+        cursor: pointer;
+      }
+
+      .history_list {
+        @extend .subscribe_list;
+        margin-top: 0;
+
+        .history_date {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          background-color: $lilacColor;
+
+          div {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 14px 0;
+            padding: 0 1rem;
+
+            span {
+              font-weight: bold;
+            }
+          }
+
+          ul {
+            width: 100%;
           }
         }
       }
