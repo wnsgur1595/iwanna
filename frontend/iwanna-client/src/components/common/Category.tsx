@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './common.scss';
+import './news.scss';
 import {AiOutlineRightCircle} from 'react-icons/ai';
 
 interface CategoryProps {

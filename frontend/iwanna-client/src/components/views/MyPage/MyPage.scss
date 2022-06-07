@@ -1,5 +1,5 @@
 @import '../../common/style.scss';
-@import '../../common/common.scss';
+@import '../../common/news.scss';
 
 .mypage {
   @extend .news;
@@ -87,10 +87,20 @@
         border-radius: 10px;
         color: #fff;
         font-weight: bold;
+
+        &:active {
+          transition: 200ms ease;
+          transform: scale(0.9);
+        }
       }
 
       .button_delete_history {
         cursor: pointer;
+
+        &:active {
+          transition: 200ms ease;
+          transform: scale(0.8);
+        }
       }
 
       .history_list {
@@ -122,5 +132,5 @@
         }
       }
     }
-  }
-}
+  } // mypage_contents
+} // mypage

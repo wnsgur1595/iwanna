@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../../../common/common.scss';
+import '../../../common/news.scss';
 import {AiOutlineInfoCircle} from 'react-icons/ai';
 import PopConfirm from '../../../common/PopConfirm';
 import Articles from './Articles';

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import ArticleList from './ArticleList';
 import Category from '../../../common/Category';
-import '../../../common/common.scss';
+import '../../../common/news.scss';
 
 interface NewsProps {
   userType: string;

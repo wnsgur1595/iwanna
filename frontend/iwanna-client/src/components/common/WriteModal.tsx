@@ -18,7 +18,7 @@ const WriteModal: React.FC<WriteModalProps> = ({isWrite, setIsWrite}) => {
   const WriteModalSubmitHandler = () => {};
 
   return (
-    <div className="modal_write_container">
+    <div className="modal_container">
       <form className="modal_write">
         <div className="modal_write_head">
           <div>
