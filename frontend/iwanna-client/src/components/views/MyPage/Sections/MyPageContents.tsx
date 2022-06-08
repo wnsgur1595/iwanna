@@ -1,6 +1,7 @@
 import React from 'react';
 import History from './History';
 import Subscribe from './Subscribe';
+import MyArticles from './MyArticles';
 
 interface MyPageContentsProps {
   curCategory: string;
@@ -14,6 +15,7 @@ const MyPageContents: React.FC<MyPageContentsProps> = ({curCategory}) => {
       </div>
       {curCategory === '구독한 기사' && <Subscribe />}
       {curCategory === '기록' && <History />}
+      {curCategory === 'My 후속 기사' && <MyArticles />}
     </div>
   );
 };

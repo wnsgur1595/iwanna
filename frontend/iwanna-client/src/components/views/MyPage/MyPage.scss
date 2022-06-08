@@ -8,7 +8,8 @@
     @extend .article_list;
 
     .subscribe,
-    .history {
+    .history,
+    .my_articles {
       @extend .articles;
 
       form {
@@ -43,7 +44,8 @@
         }
       } // subscribe > form
 
-      .subscribe_list {
+      .subscribe_list,
+      .my_articles_list {
         width: 100%;
         margin-top: 2rem;
 
@@ -74,6 +76,16 @@
             button {
               visibility: visible;
               animation: fade-in 2s ease forwards;
+            }
+          }
+
+          .edit_icon {
+            font-size: 24px;
+            cursor: pointer;
+
+            &:active {
+              transform: scale(0.9);
+              transition: 200ms ease;
             }
           }
         }
