@@ -8,8 +8,8 @@ const Subscribe = () => {
 
   return (
     <div className="subscribe">
-      <form>
-        <input />
+      <form className="subscribe_form">
+        <input placeholder="구독한 기사 검색" />
         <HiSearch className="search_mypage_icon" />
       </form>
       <ul className="subscribe_list">

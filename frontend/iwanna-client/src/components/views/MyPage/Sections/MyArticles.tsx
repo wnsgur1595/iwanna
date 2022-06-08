@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import {HiSearch} from 'react-icons/hi';
 import {BiEdit} from 'react-icons/bi';
+import UpdateModal from './../../../common/UpdateModal';
 
 const MyArticles = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
     <div className="my_articles">
-      <form>
-        <input />
+      <form className="my_articles_form">
+        <input placeholder="작성한 후속 기사 검색" />
         <HiSearch className="search_mypage_icon" />
       </form>
       <ul className="my_articles_list">
@@ -20,6 +21,9 @@ const MyArticles = () => {
           />
         </li>
       </ul>
+      {isClicked && (
+        <UpdateModal isClicked={isClicked} setIsClicked={setIsClicked} />
+      )}
     </div>
   );
 };

@@ -10,8 +10,8 @@ const History = () => {
 
   return (
     <div className="history">
-      <form>
-        <input />
+      <form className="history_form">
+        <input placeholder="기사 기록 검색" />
         <HiSearch className="search_mypage_icon" />
       </form>
       <button

@@ -12,7 +12,9 @@
     .my_articles {
       @extend .articles;
 
-      form {
+      .subscribe_form,
+      .my_articles_form,
+      .history_form {
         align-self: center;
         width: 500px;
         display: flex;

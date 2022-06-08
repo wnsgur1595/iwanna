@@ -10,7 +10,11 @@
   bottom: 0;
   right: 0;
   z-index: 15;
-  background-color: rgba(0, 0, 0, 0.4);
+  // background-color: rgba(0, 0, 0, 0.4);
+
+  button {
+    margin: 0 4px;
+  }
 
   .modal_write {
     position: relative;
@@ -54,13 +58,15 @@
     .modal_write_input {
       margin-top: 1.25rem;
       display: flex;
+      width: 100%;
+
       input {
-        background-color: $lilacColor;
         flex: 1;
         padding: 8px 14px;
         margin-right: 5px;
         border-radius: 10px;
         font-size: 14px;
+        background: $lilacColor;
       }
 
       button {
@@ -72,14 +78,28 @@
       }
     } // modal_write_input
 
-    .button_modal_write {
+    .modal_update_button {
+      align-self: flex-end;
+    }
+
+    .button_modal_write,
+    .button_modal_delete {
       margin-top: 2rem;
       align-self: flex-end;
       background-color: $disableColor;
       color: white;
       padding: 8px 12px;
       border-radius: 10px;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: 300ms ease;
+      }
     } // button_modal_write
+
+    .button_modal_delete {
+      background-color: $redColor;
+    }
 
     .button_modal_write.clamp {
       background-color: $violetColor;
@@ -165,8 +185,8 @@
         transition: 300ms ease;
       }
     } //modal_close_icon
-  }
-} // modal_mypage_confirm
+  } // modal_mypage_confirm
+}
 
 //PopConfirm
 .pop_confirm {
