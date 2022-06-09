@@ -9,9 +9,9 @@ const History = () => {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="history">
-      <form className="history_form">
-        <input placeholder="기사 기록 검색" />
+    <div className="mypage_container">
+      <form className="mypage_search">
+        <input placeholder="기사의 제목을 입력해주세요." />
         <HiSearch className="search_mypage_icon" />
       </form>
       <button

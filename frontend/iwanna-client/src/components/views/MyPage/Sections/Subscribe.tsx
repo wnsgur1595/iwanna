@@ -7,9 +7,9 @@ const Subscribe = () => {
   const message = '해당 기사의 구독을 취소하시겠습니까?';
 
   return (
-    <div className="subscribe">
-      <form className="subscribe_form">
-        <input placeholder="구독한 기사 검색" />
+    <div className="mypage_container">
+      <form className="mypage_search">
+        <input placeholder="기사의 제목을 입력해주세요." />
         <HiSearch className="search_mypage_icon" />
       </form>
       <ul className="subscribe_list">

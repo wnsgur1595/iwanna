@@ -7,14 +7,10 @@
   .mypage_contents {
     @extend .article_list;
 
-    .subscribe,
-    .history,
-    .my_articles {
+    .mypage_container {
       @extend .articles;
 
-      .subscribe_form,
-      .my_articles_form,
-      .history_form {
+      .mypage_search {
         align-self: center;
         width: 500px;
         display: flex;
@@ -144,6 +140,10 @@
             width: 100%;
           }
         }
+      } // history_list
+
+      .add_article_list {
+        margin-top: 2rem;
       }
     }
   } // mypage_contents

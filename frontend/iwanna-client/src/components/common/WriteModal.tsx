@@ -3,16 +3,16 @@ import {AiOutlineInfoCircle, AiOutlineCloseCircle} from 'react-icons/ai';
 import PopConfirmModal from './PopConfirmModal';
 
 interface WriteModalProps {
-  isWrite: boolean;
-  setIsWrite: React.Dispatch<React.SetStateAction<boolean>>;
+  isClicked: boolean;
+  setIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const WriteModal: React.FC<WriteModalProps> = ({isWrite, setIsWrite}) => {
+const WriteModal: React.FC<WriteModalProps> = ({isClicked, setIsClicked}) => {
   const [hide, setHide] = useState(false);
   const [isConfirm, setIsConfirm] = useState(false);
 
   const writeModalCloseHandler = () => {
-    setIsWrite(!isWrite);
+    setIsClicked(!isClicked);
   };
 
   const WriteModalSubmitHandler = () => {};

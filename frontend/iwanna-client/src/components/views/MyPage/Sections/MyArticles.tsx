@@ -7,9 +7,9 @@ const MyArticles = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
-    <div className="my_articles">
-      <form className="my_articles_form">
-        <input placeholder="작성한 후속 기사 검색" />
+    <div className="mypage_container">
+      <form className="mypage_search">
+        <input placeholder="작성한 후속 기사를 입력해주세요." />
         <HiSearch className="search_mypage_icon" />
       </form>
       <ul className="my_articles_list">
