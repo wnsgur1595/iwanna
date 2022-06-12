@@ -27,7 +27,14 @@ const ArticleList: React.FC<ArticleListProps> = ({
           onMouseOver={() => setHide(true)}
           onMouseOut={() => setHide(false)}
         />
-        <PopConfirm hide={hide} userType={userType} />
+        <PopConfirm
+          hide={hide}
+          message={
+            userType === 'user'
+              ? "후속 기사를 원하시면 버튼을 눌러 '신청' 또는 '취소'할 수 있습니다. "
+              : "작성한 후속 기사를 등록하고싶으면, '작성' 버튼을 눌러주세요."
+          }
+        />
       </div>
       {userType === 'user' && <ArticlesUser isLogin={isLogin} />}
       {userType === 'reporter' && <ArticlesReporter />}

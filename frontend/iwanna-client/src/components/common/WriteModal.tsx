@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {AiOutlineInfoCircle, AiOutlineCloseCircle} from 'react-icons/ai';
-import PopConfirmModal from './PopConfirmModal';
+import PopConfirm from './PopConfirm';
 
 interface WriteModalProps {
   isClicked: boolean;
@@ -28,7 +28,10 @@ const WriteModal: React.FC<WriteModalProps> = ({isClicked, setIsClicked}) => {
               onMouseOver={() => setHide(true)}
               onMouseOut={() => setHide(false)}
             />
-            <PopConfirmModal hide={hide} />
+            <PopConfirm
+              hide={hide}
+              message={'후속 기사 URL을 확인해야 작성 가능합니다.'}
+            />
           </div>
           <AiOutlineCloseCircle
             className="modal_close_icon"
