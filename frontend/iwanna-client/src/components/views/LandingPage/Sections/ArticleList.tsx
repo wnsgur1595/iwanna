@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import '../../../common/news.scss';
 import {AiOutlineInfoCircle} from 'react-icons/ai';
 import PopConfirm from '../../../common/PopConfirm';
-import Articles from './Articles';
+import ArticlesUser from './ArticlesUser';
+import ArticlesReporter from './ArticlesReporter';
 
 interface ArticleListProps {
   curCategory: string;
@@ -28,7 +29,8 @@ const ArticleList: React.FC<ArticleListProps> = ({
         />
         <PopConfirm hide={hide} userType={userType} />
       </div>
-      <Articles userType={userType} isLogin={isLogin} />
+      {userType === 'user' && <ArticlesUser isLogin={isLogin} />}
+      {userType === 'reporter' && <ArticlesReporter />}
     </div>
   );
 };
